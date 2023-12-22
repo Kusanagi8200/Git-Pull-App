@@ -1,42 +1,42 @@
-# Script de Mise à Jour des Dépôts Git
+# Git Repositories Update Script
 
-Ce script bash est conçu pour mettre à jour automatiquement une liste de dépôts Git locaux. Il utilise des couleurs pour mettre en évidence les différentes étapes et les résultats de ces opérations.
+This bash script is designed to automatically update a list of local Git repositories. It uses colors to highlight different stages and outcomes of the operations.
 
-## Fonctionnement
+## Functionality
 
-Le script parcourt une liste de chemins vers des dépôts Git locaux. Pour chaque dépôt, il tente d'exécuter `git pull` pour le mettre à jour. Si un dépôt contient des modifications non commitées, le script affiche un avertissement et passe au dépôt suivant.
+The script iterates through a list of paths to local Git repositories. For each repository, it attempts to execute `git pull` to update it. If a repository contains uncommitted changes, the script displays a warning and moves on to the next repository.
 
-## Mise en Forme du Texte
+## Text Formatting
 
-Des variables de couleur sont définies pour améliorer la lisibilité des messages :
+Color variables are defined to enhance message readability:
 
-- `HIGHLIGHT` : Fond orange avec texte noir en gras.
-- `ERROR` : Fond rouge avec texte blanc en gras.
-- `SUCCESS` : Fond pourpre avec texte blanc en gras.
-- `NC` (No Color) : Réinitialise la couleur à la normale.
+- `HIGHLIGHT`: Orange background with bold black text.
+- `ERROR`: Red background with bold white text.
+- `SUCCESS`: Purple background with bold white text.
+- `NC` (No Color): Resets the color to normal.
 
-## Liste des Dépôts
+## Repositories List
 
-Les dépôts sont définis dans un tableau `REPOS`, avec chaque chemin vers un dépôt sur une ligne distincte.
+Repositories are defined in an array `REPOS`, with each path to a repository on a separate line.
 
-## Boucle de Mise à Jour
+## Update Loop
 
-Le script itère sur chaque dépôt :
+The script iterates over each repository:
 
-1. Il se déplace dans le répertoire du dépôt (`cd`).
-2. Vérifie s'il y a des modifications non commitées.
-   - Si oui, affiche un message d'erreur et continue avec le prochain dépôt.
-   - Sinon, exécute `git pull` pour mettre à jour le dépôt.
+- Changes to the repository directory (`cd`).
+- Checks if there are uncommitted changes.
+  - If yes, displays an error message and continues with the next repository.
+  - Otherwise, executes `git pull` to update the repository.
 
-## Exemple de Sortie
+## Example Output
 
-- Les messages en orange indiquent le début de la mise à jour d'un dépôt.
-- Les messages en rouge indiquent la présence de changements non commités.
-- Le message final en pourpre indique que la mise à jour de tous les dépôts est terminée.
+- Messages in orange indicate the start of updating a repository.
+- Messages in red indicate the presence of uncommitted changes.
+- The final message in purple indicates that the update of all repositories is complete.
 
-## Utilisation
+## Usage
 
-Pour utiliser ce script, assurez-vous qu'il est exécutable :
+To use this script, make sure it is executable:
 
 ```bash
-chmod +x nom_du_script.sh
+chmod +x script_name.sh
