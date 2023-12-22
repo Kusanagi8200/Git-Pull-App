@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Mise en forme du texte
+HIGHLIGHT='\033[43;1;30m'  # Fond orange, texte noir en gras
+ERROR='\033[41;1;97m'     # Fond rouge, texte blanc en gras
+SUCCESS='\033[45;1;97m'   # Fond pourpre, texte blanc en gras
+NC='\033[0m'  # Pas de couleur
+
+echo ""
+echo -e "${HIGHLIGHT}SCRIPT DE MISE À JOUR DES DÉPOTS GIT${NC}"
+echo ""
+
+# Liste de vos dépôts locaux
+REPOS=(
+"/home/nathanael.desnoyers/netbox-scripts"
+"/home/nathanael.desnoyers/ansible"
+"/home/nathanael.desnoyers/scriptsadmin"
+"/home/nathanael.desnoyers/.password-store"
+)
+
+# Exécution du 'git pull' pour chaque dépôt
+for repo in "${REPOS[@]}"; do
+    echo -e "${HIGHLIGHT}MISE À JOUR DU DEPOT $repo${NC}"
+    echo ""
+    cd "$repo" || continue
+    if [[ -n $(git status --porcelain) ]]; then
+        echo -e "${ERROR}IL Y A DES CHANGEMENTS NON COMMITÉS DANS $repo --> ${NC}"
+        git status
+        continue
+    fi
+    echo ""  # Pour une meilleure lisibilité
+    git pull
+    echo ""  # Pour une meilleure lisibilité
+done
+    echo ""  # Pour une meilleure lisibilité
+echo -e "${SUCCESS}MISE À JOUR TERMINÉE POUR TOUS LES DÉPOTS${NC}"
+echo ""
+echo ""
