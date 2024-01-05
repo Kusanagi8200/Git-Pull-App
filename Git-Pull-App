@@ -12,10 +12,10 @@ echo ""
 
 # Liste de vos dépôts locaux
 REPOS=(
-"/home/nathanael.desnoyers/netbox-scripts"
-"/home/nathanael.desnoyers/ansible"
-"/home/nathanael.desnoyers/scriptsadmin"
-"/home/nathanael.desnoyers/.password-store"
+"$/path/to/repo"
+"$/path/to/repo"
+"$/path/to/repo"
+"$/path/to/repo"
 )
 
 # Exécution du 'git pull' pour chaque dépôt
