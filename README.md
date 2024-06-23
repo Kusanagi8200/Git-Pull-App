@@ -1,11 +1,13 @@
 # Git Repositories Update Script
 
-This bash script is designed to automatically update a list of local Git repositories. It uses colors to highlight different stages and outcomes of the operations.
-Equivalent as --> find . -maxdepth 3 -name .git -type d | rev | cut -c 6- | rev | xargs -I {} git -C {} pull
+- This bash script is designed to automatically update a list of local Git repositories. 
+- It uses colors to highlight different stages and outcomes of the operations.
+- Equivalent as --> find . -maxdepth 3 -name .git -type d | rev | cut -c 6- | rev | xargs -I {} git -C {} pull
 
 ## Functionality
 
-The script iterates through a list of paths to local Git repositories. For each repository, it attempts to execute `git pull` to update it. If a repository contains uncommitted changes, the script displays a warning and moves on to the next repository.
+- The script iterates through a list of paths to local Git repositories. For each repository, it attempts to execute `git pull` to update it. 
+- If a repository contains uncommitted changes, the script displays a warning and moves on to the next repository.
 
 ## Text Formatting
 
