@@ -1,6 +1,7 @@
 # Git Repositories Update Script
 
 This bash script is designed to automatically update a list of local Git repositories. It uses colors to highlight different stages and outcomes of the operations.
+Equivalent as --> find . -maxdepth 3 -name .git -type d | rev | cut -c 6- | rev | xargs -I {} git -C {} pull
 
 ## Functionality
 
